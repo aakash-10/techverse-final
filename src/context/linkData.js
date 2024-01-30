@@ -29,11 +29,6 @@ export const linkData=[
         path: '/cart'
     },
 
-    {
-        id:6,
-        text: 'login',
-        path: '/login'
-    }
-
+   
 
 ]

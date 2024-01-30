@@ -8,7 +8,7 @@ import './Sidebar.css'
 
 function Sidebar() {
   const value = useContext(ProductContext);
-  const { links, sidebarOpen, handleSidebar } = value;
+  const { links, sidebarOpen, handleSidebar, isLoggedIn, logout } = value;
 
   return (
     <div className={`side-wrapper ${sidebarOpen ? 'show' : ''}`}>
@@ -24,6 +24,17 @@ function Sidebar() {
             </Link>
           </li>
         ))}
+         <li>
+          {isLoggedIn ? (
+            <button className="sidebar-link" onClick={logout}>
+              Logout
+            </button>
+          ) : (
+            <Link to="/login" className="sidebar-link" onClick={handleSidebar}>
+              Login
+            </Link>
+          )}
+        </li>
       </ul>
     </div>
   );

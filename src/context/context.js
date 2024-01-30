@@ -344,6 +344,9 @@ const ProductProvider = ({ children }) => {
       }
     };
 
+
+    
+
     fetchDataAndSetState();
   }, [state.search, state.company, state.price, state.cartItems]); // Dependency array adjusted based on your use case
 
@@ -558,6 +561,12 @@ const ProductProvider = ({ children }) => {
     setState((prevState) => ({ ...prevState, filteredProducts: tempProducts }));
   };
 
+  const logout = () => {
+
+    setIsLoggedIn(false);
+
+  };
+
   return (
     <ProductContext.Provider
       value={{
@@ -575,6 +584,7 @@ const ProductProvider = ({ children }) => {
         handleChange,
         isLoggedIn,
         setIsLoggedIn,
+        logout,
       }}
     >
       {children}
