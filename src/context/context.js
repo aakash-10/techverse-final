@@ -325,9 +325,11 @@ const ProductProvider = ({ children }) => {
     search: '',
     price: 0,
     company: 'all',
+    
   });
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState('');
 
   useEffect(() => {
     const fetchDataAndSetState = async () => {
@@ -564,6 +566,7 @@ const ProductProvider = ({ children }) => {
   const logout = () => {
 
     setIsLoggedIn(false);
+    setUsername('');
 
   };
 
@@ -584,6 +587,8 @@ const ProductProvider = ({ children }) => {
         handleChange,
         isLoggedIn,
         setIsLoggedIn,
+        setUsername,
+        username,
         logout,
       }}
     >

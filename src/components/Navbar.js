@@ -5,7 +5,7 @@ import { useContext } from 'react'
 import './Navbar.css'
 function Navbar() {
   const value = useContext(ProductContext);
-  const {  cartItems,  handleSidebar, handleCart } = value
+  const {  cartItems,  handleSidebar, handleCart, username, isLoggedIn } = value
   return (
     <nav className="NavWrapper">
       <div className="nav-center">
@@ -14,6 +14,11 @@ function Navbar() {
         <div className="nav-cart">
           <FaCartPlus className="nav-icon" onClick={handleCart} />
           <div className="cart-items">{cartItems}</div>
+          {isLoggedIn ? (
+          <p className="username">{`Welcome, ${username}`}</p>
+        ) : (
+          <p className="username">Guest</p>
+        )}
         </div>
       </div>
     </nav>

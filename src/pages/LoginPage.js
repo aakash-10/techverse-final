@@ -14,7 +14,7 @@ import './Login.css'
 
 function App() {
   const { register, handleSubmit } = useForm();
-  const { isLoggedIn, setIsLoggedIn  } = useContext(ProductContext);
+  const { isLoggedIn, setIsLoggedIn, username, setUsername  } = useContext(ProductContext);
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const [showSignInMessage, setShowSignInMessage] = useState(false);
@@ -35,6 +35,7 @@ function App() {
        
         if (result) {
           setIsLoggedIn(true);
+          setUsername(usersList[0].username);
           setShowSignInMessage(true);
           alert('Successfully logged in!');
           console.log(isLoggedIn);
